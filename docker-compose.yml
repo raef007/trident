@@ -1,0 +1,41 @@
+version: "3.5"
+
+services:
+  trident-app:
+    build:
+      context: '.'
+      args:
+        uid: ${UID}
+    container_name: trident-app
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${UID}
+    volumes:
+      - .:/var/www/html
+    ports:
+      - ${HOST_PORT}:80
+    networks:
+      backend:
+        aliases:
+          - trident-app
+
+  trident-db:
+    image: mariadb:10.4
+    container_name: trident-db
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.trident-data/database:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    networks:
+      backend:
+        aliases:
+          - trident-db
+
+networks:
+  backend:
