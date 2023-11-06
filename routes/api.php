@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:api'], function () {
+    /* Users */
+    Route::get('users','\App\User\Controllers\APIController@index')->name('users.index');
+    Route::get('users/me','\App\User\Controllers\APIController@me')->name('users.me');
+
+    /* Communities */
+    Route::get('communities','\App\Estate\Controllers\APIController@index')->name('community.index');
+    Route::get('communities/me','\App\Estate\Controllers\APIController@me')->name('community.me');
+
+    /* Units */
+    Route::get('units','\App\Estate\Controllers\UnitAPIController@index')->name('unit.index');
+    Route::get('units/{id}','\App\Estate\Controllers\UnitAPIController@show')->name('unit.show');
 });

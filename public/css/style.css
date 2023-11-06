@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/*!
+Impulse, by Archetype Themes
+http://archetypethemes.co
+*/
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+}
+
+.white {
+	color: #FFFFFF;
+}
+
+/* Login */
+.splash-container {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    max-width: none;
+}
+
+.login-splash {
+	background-image: url('../images/technology-banner.jpg');
+	background-repeat: no-repeat;
+    width: 100%;
+    height: calc(100vh - 30vh);
+    background-position: 50%;
+    background-size: cover;
+}
+
+.splash-widgets {
+	position: absolute;
+    top: 50px;
+    margin: 10px;
+}
+
+.splash-login-card {
+	box-shadow: none;
+}
+
+.splash-login-form {
+	max-width: 800px;
+}
+
+.widget-container {
+	width: 600px;
+}
+
+.widget-card {
+	max-height: 120px;
+	background-color: black;
+    color: #FFF;
+    border-radius: 10px;
+}
+
+.trade-details-notes {
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+.left-nav-list {
+	padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.left-nav-item {
+	color: #000000;
+    text-decoration: none;
+}
+
+.left-nav-icon {
+	color: cornflowerblue;
+}
+
+@media only screen and  (max-width:375px)
+{
+	.login-splash {
+		height: calc(100vh - 50vh);
+	}
+
+	.widget-container {
+		width: auto;
+	}
+}
