@@ -40,4 +40,32 @@ class Unit extends Model
     {
         return $this->belongsTo('App\Estate\Models\Community', 'estate')->withTrashed();
     }
+
+    /**
+     * Unit Owners
+     *
+     * @return User
+     */
+    public function owners()
+    {
+        return $this->belongsToMany('App\Models\User', 'unit_occupancy', 'unit', 'user')
+            ->with(['profile'])
+            ->withPivot(['is_primary', 'is_owner'])
+            ->wherePivot('is_owner', 1)
+            ->withTimestamps();
+    }
+
+    /**
+     * Unit Tenants
+     *
+     * @return User
+     */
+    public function tenants()
+    {
+        return $this->belongsToMany('App\Models\User', 'unit_occupancy', 'unit', 'user')
+            ->with(['profile'])
+            ->withPivot(['is_primary', 'is_owner'])
+            ->wherePivot('is_owner', 0)
+            ->withTimestamps();
+    }
 }

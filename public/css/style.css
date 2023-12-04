@@ -78,6 +78,10 @@ body {
 	color: cornflowerblue;
 }
 
+.tiny {
+	font-size: 60%;
+}
+
 @media only screen and  (max-width:375px)
 {
 	.login-splash {

@@ -25,5 +25,5 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     /* Units */
     Route::get('units','\App\Estate\Controllers\UnitAPIController@index')->name('unit.index');
-    Route::get('units/{id}','\App\Estate\Controllers\UnitAPIController@show')->name('unit.show');
+    Route::get('units/{id}','\App\Estate\Controllers\UnitAPIController@show')->name('unit.show')->where('id', '[0-9]+');
 });

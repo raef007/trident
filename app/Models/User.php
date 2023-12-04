@@ -42,4 +42,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Units of the owner
+     *
+     * @return Unit
+     */
+    public function units()
+    {
+        return $this->belongsToMany('App\Estate\Models\Unit', 'unit_occupancy', 'user', 'unit')
+            ->withPivot(['is_primary', 'is_owner'])
+            ->withTimestamps();
+    }
+
+    /**
+     * User Profile
+     *
+     * @return Profile
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\User\Models\Profile', 'user')->withTrashed();
+    }
 }

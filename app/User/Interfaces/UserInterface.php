@@ -25,4 +25,13 @@ interface UserInterface
      */
     public function paginatedSearch($filter);
 
+    /**
+     * Fetches a specified User by ID
+     *
+     * @param integer $id
+     *
+     * @return array
+     */
+    public function fetch($id);
+
 }

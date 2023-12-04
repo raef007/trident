@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Estate\Models\Unit;
 use App\Estate\Interfaces\UnitInterface;
 
@@ -83,5 +84,4 @@ class UnitAPIController extends Controller
             );
         }
     }
-    
 }

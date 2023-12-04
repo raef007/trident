@@ -86,7 +86,11 @@ class UnitEloquent implements UnitInterface
     public function fetch($id)
     {
         try {
-            return Unit::with(['community'])
+            return Unit::with([
+                    'community',
+                    'owners',
+                    'tenants',
+                ])
                 ->where('id', $id)
                 ->first();
 

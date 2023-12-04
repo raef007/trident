@@ -19,7 +19,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('unit_tenancy', function (Blueprint $table) {
+        Schema::create('unit_occupancy', function (Blueprint $table) {
             $table->id();
             $table->integer('user');
             $table->integer('unit');

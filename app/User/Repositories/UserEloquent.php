@@ -92,4 +92,25 @@ class UserEloquent implements UserInterface
         }
     }
 
+    /**
+     * Fetches a specified User by ID
+     *
+     * @param integer $id
+     *
+     * @return array
+     */
+    public function fetch($id)
+    {
+        try {
+            return User::with([
+                    'profile'
+                ])
+                ->where('id', $id)
+                ->first();
+
+        } catch (\Exception $error) {
+            dd($error->getMessage());
+            return [];
+        }
+    }
 }
